@@ -4,6 +4,7 @@ use std::{str, thread};
 
 pub fn handler(mut stream: TcpStream) -> Result<(), failure::Error> {
     debug!("Handling data from {}", stream.peer_addr()?);
+    // 8ビットの1024byteのバッファを用意
     let mut buffer = [0u8; 1024];
     loop {
         let nbytes = stream.read(&mut buffer)?;
