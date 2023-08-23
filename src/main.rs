@@ -25,7 +25,7 @@ fn main() {
                 tcp_server::serve(address).unwrap_or_else(|e| error!("{}", e));
             }
             "client" => {
-                // TODO: TCPクライアントを呼び出し
+                tcp_client::connect(address).unwrap_or_else(|e| error!("{}", e));
             }
             _ => {
                 missing_role();
