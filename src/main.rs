@@ -36,7 +36,7 @@ fn main() {
                 udp_server::serve(address).unwrap_or_else(|e| error!("{}", e));
             }
             "client" => {
-                // TODO: UDPクライアントを呼び出し
+                udp_client::communicate(address).unwrap_or_else(|e| error!("{}", e));
             }
             _ => {
                 missing_role();
